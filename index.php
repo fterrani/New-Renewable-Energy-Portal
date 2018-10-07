@@ -4,8 +4,6 @@ const DB_USERNAME = 'root';
 const DB_PASSWORD = '';
 
 
-var_dump($_POST);
-
 
 
 if ( isset($_POST['username']))
@@ -19,6 +17,7 @@ if ( isset($_POST['username']))
 
         $result = $conn->query($sql);
 
+        // Test comment (Fabien)
         if ($result->rowCount() == 1)
         {
             echo "right password!";

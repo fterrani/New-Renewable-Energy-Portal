@@ -1,0 +1,15 @@
+
+# We apply the rule if the REQUEST_URI does not match an existing file
+RewriteCond ${REQUEST_URI} !-f
+
+# The request is transfered to file routing.php
+# The REQUEST_URI (without query string) is put in a variable named __uri__
+# __uri__ variable is appended to the original query string of the request
+# [B] flag escapes backreferences characters before concatenation
+# [QSA] flag appends the original query string to the redirection's
+# [L] flag terminates the URL rewriting process
+# The regex puts:
+# - the full URI $1 in _uri,
+# - the first slash-delimited string $2 in _c (controller)
+# - the second slash-delimited string $4 in _a (action)
+RewriteRule ^(([^/]+)(/?([^/]+)?)?.*) routing.php?__uri=$1&__c=$2&__a=$4 [B,QSA,L]
