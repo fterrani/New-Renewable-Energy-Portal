@@ -1,6 +1,6 @@
 
 # We apply the rule if the REQUEST_URI does not match an existing file
-RewriteCond ${REQUEST_URI} !-f
+RewriteCond %{REQUEST_FILENAME} !-f
 
 # The request is transfered to file routing.php
 # The REQUEST_URI (without query string) is put in a variable named __uri__

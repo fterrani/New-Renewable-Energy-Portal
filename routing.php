@@ -1,20 +1,41 @@
 <?php
-spl_autoload_register( function($name){
 
+define('__BASE__', str_replace('\\','/',__DIR__));
+define('__INCLUDES__', __BASE__.'/includes');
+define('__MVC_M__', __BASE__.'/models');
+define('__MVC_V__', __BASE__.'/views');
+define('__MVC_C__', __BASE__.'/controllers');
+
+define('__BASE_URL__', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']));
+define('__PUBLIC__', __BASE_URL__.'/public');
+define('__PUBLIC_CSS__', __PUBLIC__.'/css');
+define('__PUBLIC_JS__', __PUBLIC__.'/js');
+
+
+spl_autoload_register( function($className)
+{
+    $folders = array( __INCLUDES__, __MVC_M__, __MVC_C__ );
+
+    $loaded = false;
     $level = error_reporting();
     error_reporting(0);
 
-    include_once 'includes/'.$name.'php';
-    // Trying to load from /models folder
-    include_once 'models/'.$name.'.php';
-    // Trying to load from /models folder
-    include_once 'controllers/'.$name.'.php';
+    foreach ( $folders as $folder )
+    {
+        $loaded = include_once ($folder.'/'.$className.'.php');
+
+        if ($loaded)
+            break;
+    }
 
     error_reporting( $level );
+
+    if (!$loaded)
+    {
+        throw new Exception('Autoload function did not find class \''.$className.'\'' );
+    }
 });
 
-
-echo "A";
 
 $c_name = ucfirst( strtolower( $_GET['__c'] ) ) . 'Controller';
 $action = $_GET['__a'];
@@ -25,38 +46,31 @@ $spath = preg_split('/\\//', $uri );
 unset( $_GET['__c'] );
 unset( $_GET['__a'] );
 unset( $_GET['__uri'] );
-echo "X $c_name";
-error_reporting(E_ALL);
-$controller = new $c_name();
-error_reporting(E_ALL);
-echo "B";
-if ($controller->auto_status)
-    http_response_code( $controller->status );
-if ($controller->auto_mime)
-    headers( 'Content-Type: ' . $controller->mimeType ); // TODO remove new lines!!
-
-$controller->run( $action, $spath, $full_uri );
 
 
+try
+{
+    $controller = new $c_name();
+}
+catch(Exception $e)
+{
+    $controller = new DefaultController();
+}
 
-
-
+$controller->run( $action, $spath, $uri );
 ?>
 
-<h1>ROUTING.PHP</h1>
+<hr>
+<div style="font-family: monospace">
 
-<style>* {font-family: monospace}</style>
+    <h1>ROUTING INFOS</h1>
+    <?php
+    var_dump($_GET);
+    var_dump( $_SERVER );
+    ?>
+</div>
 
-<h1>GET</h1>
-<?php var_dump($_GET);?>
 
-<h1>POST</h1>
-<?php var_dump($_POST);?>
 
-<h1>__FILE__</h1>
-<?php echo __FILE__ ?>
-
-<h1>__DIR__</h1>
-<?php echo __DIR__ ?>
 
 
