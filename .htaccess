@@ -4,7 +4,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 # The request is transfered to file routing.php
 # The REQUEST_URI (without query string) is put in a variable named __uri__
-# __uri__ variable is appended to the original query string of the request
+# __uri variable is appended to the original query string of the request
 # [B] flag escapes backreferences characters before concatenation
 # [QSA] flag appends the original query string to the redirection's
 # [L] flag terminates the URL rewriting process
