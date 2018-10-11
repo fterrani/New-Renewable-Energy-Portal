@@ -10,6 +10,19 @@ abstract class Controller
     protected $mimeType = 'text/html'; // Returned data MIME type
     protected $headers = array(); // Custom HTTP headers
 
+    static function header_escape( $str )
+    {
+        return str_replace( array('\r','\n'), '', $str );
+    }
+
+    function __construct()
+    {}
+
+    function addHeader($name, $value)
+    {
+        $this->headers[ self::header_escape($name) ] = self::header_escape($value);
+    }
+
     function prerun( $action, $spath, $full_uri )
     {}
 
@@ -17,18 +30,13 @@ abstract class Controller
     {
         $this->prerun( $action, $spath, $full_uri );
 
-        function header_escape( $str )
-        {
-            return str_replace( array('\r','\n'), '', $str );
-        }
-
         if ($this->auto_status)
             http_response_code( $this->status );
 
         if ($this->auto_mime)
         {
             header(
-                'Content-Type: '.header_escape( $this->mimeType )
+                'Content-Type: '.self::header_escape( $this->mimeType )
             );
         }
 
@@ -36,12 +44,14 @@ abstract class Controller
         {
             foreach( $this->headers as $name => $value )
             {
-                header( header_escape($name).': '.header_escape($value) );
+                header( self::header_escape($name).': '.self::header_escape($value) );
             }
         }
 
+
         // Renders the HTTP content
-        $this->response( $action, $spath, $full_uri );
+        $this->response($action, $spath, $full_uri);
+
     }
 
     abstract function response($action, $spath, $full_uri );

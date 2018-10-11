@@ -9,14 +9,14 @@
         foreach( $stylesheets as $sheet )
         {
             ?>
-            <link rel="stylesheet" type="text/css" href="<?= __PUBLIC_CSS__.'/'.$sheet; ?>.css">
+            <link rel="stylesheet" type="text/css" href="<?= $sheet ?>">
             <?php
         }
 
         foreach( $scripts as $scriptName )
         {
             ?>
-            <script type="text/javascript" src="<?= __PUBLIC_JS__.'/'.$scriptName; ?>.js"></script>
+            <script type="text/javascript" src="<?= $scriptName ?>"></script>
             <?php
         }
         ?>

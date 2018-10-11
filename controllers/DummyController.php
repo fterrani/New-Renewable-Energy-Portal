@@ -4,6 +4,8 @@ class DummyController extends Controller
 {
     function __construct()
     {
+        parent::__construct();
+
         $this->status = 200;
         $this->mimeType = 'text/plain';
     }

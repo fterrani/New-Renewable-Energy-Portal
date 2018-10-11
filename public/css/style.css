@@ -1,4 +1,59 @@
-body{
-    background: lightblue;
-    color: darkslategray;
+body {
+    background-image: url("../loginBackground.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center top 115px;
+    background-size: 550px;
+    background-color: #61737C;
+    font-family: Trebuchet MS;
+    color: white;
+}
+h1{
+    margin-top: 30px;
+    text-align: center;
+
+}
+.buttonSubmit{
+    text-align: center;
+}
+.form{
+    margin-top: 8px;
+    margin-right:13px;
+    background-color: #7D9C1F;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    border-radius: 8px;
+}
+#button{
+    background-color: #325908;
+    border: #325908;
+    box-shadow: 0 0 7px 2px #6aa818;
+
+    margin-top: 165px;
+    margin-right:13px;
+    border-radius: 20px;
+}
+
+
+.container{
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: space-around;
+    align-items: center;
+
+}
+canvas{
+    background-color: white;
+    border-radius: 12px;
+}
+
+.nre-btn-stats
+{
+    height:120px;
+    width:120px;
+    border-radius: 12px;
+    background-color: #7D9C1F;
 }

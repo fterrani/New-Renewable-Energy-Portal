@@ -6,20 +6,34 @@ abstract class HtmlController extends Controller
     protected $scripts = array();
     protected $stylesheets = array();
 
+    private $cdnPattern = '/^https?:\\/\\//';
+
     function __construct()
     {
+        parent::__construct();
+
         $this->status = 200;
         $this->mimeType = 'text/html';
     }
 
     protected function addScript( $name )
     {
-        $this->scripts[] = strval( $name );
+        $name = strval( $name );
+
+        if ( preg_match($this->cdnPattern, $name) != 1 )
+            $name = __PUBLIC_JS__.'/'.$name.'.js';
+
+        $this->scripts[] = $name;
     }
 
     protected function addStylesheet( $name )
     {
-        $this->stylesheets[] = strval( $name );
+        $name = strval( $name );
+
+        if ( preg_match($this->cdnPattern, $name) != 1 )
+            $name = __PUBLIC_CSS__.'/'.$name.'.css';
+
+        $this->stylesheets[] = $name;
     }
 
     function response($action, $spath, $full_uri )

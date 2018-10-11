@@ -11,6 +11,11 @@ define('__PUBLIC__', __BASE_URL__.'/public');
 define('__PUBLIC_CSS__', __PUBLIC__.'/css');
 define('__PUBLIC_JS__', __PUBLIC__.'/js');
 
+define('__DB_HOST__', 'localhost');
+define('__DB_USER__', 'root');
+define('__DB_PASSWORD__', '');
+define('__DB_SCHEMA__', 'db_nre');
+
 
 spl_autoload_register( function($className)
 {
@@ -58,6 +63,8 @@ catch(Exception $e)
 }
 
 $controller->run( $action, $spath, $uri );
+
+/*
 ?>
 
 <hr>
@@ -69,7 +76,7 @@ $controller->run( $action, $spath, $uri );
     var_dump( $_SERVER );
     ?>
 </div>
-
+*/
 
 
 

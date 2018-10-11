@@ -5,7 +5,7 @@ const DB_PASSWORD = '';
 
 
 
-
+// my modification (Fabien)
 if ( isset($_POST['username']))
 {
     try{
@@ -17,7 +17,7 @@ if ( isset($_POST['username']))
 
         $result = $conn->query($sql);
 
-        // Test comment (Fabien)
+
         if ($result->rowCount() == 1)
         {
             echo "right password!";
@@ -33,14 +33,8 @@ if ( isset($_POST['username']))
     }
 }
 
-
+// my SUPER comment (Fabien)
+//Comment jauf
 ?>
-<h1>Login</h1>
-<form action="" method="POST">
-    <label>Username: <input type="text" name="username" required></label>
-    <br>
-    <label>Password:<input type="password" name="password" required></label>
-    <br>
-    <br>
-    <input type="submit" value="Send">
-</form>
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">

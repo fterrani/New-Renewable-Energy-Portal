@@ -9,6 +9,8 @@ class MathController extends HtmlController
 
     function __construct()
     {
+        parent::__construct();
+
         $this->title = 'Legendary Math App';
         $this->addScript('script');
         $this->addStylesheet('style');

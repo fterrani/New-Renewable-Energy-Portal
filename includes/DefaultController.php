@@ -4,6 +4,8 @@ class DefaultController extends HtmlController
 {
     function __construct()
     {
+        parent::__construct();
+
         $this->status = 404;
     }
 
