@@ -11,7 +11,6 @@ class LoginController extends HtmlController
         $this->title = 'Welcome to NRE Portal';
         $this->addScript('script');
 
-        $this->addStylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css');
         $this->addStylesheet('style');
     }
 

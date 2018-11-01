@@ -1,0 +1,176 @@
+body {
+    background-image: url("../img/loginBackground.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: 550px;
+    background-color: #61737C;
+    font-family: Trebuchet MS;
+    color: white;
+}
+h1{
+    margin-top: 30px;
+    text-align: center;
+
+}
+
+canvas{
+    background-color: white;
+    border-radius: 12px;
+}
+
+button:focus {
+    outline: none;
+}
+
+.buttonSubmit{
+    text-align: center;
+}
+
+.nre-login-area
+{
+    position: absolute;
+    top: 46px;
+    bottom: 0;
+    left: 0;
+    right: 13px;
+    margin: auto;
+    width: 280px;
+    height: 300px;
+}
+
+.nre-login-form{
+    /*margin-top: 8px;
+    margin-right:13px;*/
+    background-color: #7D9C1F;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    border-radius: 8px;
+}
+
+/*
+.container{
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: space-around;
+    align-items: center;
+
+}*/
+
+.nre-btn-stats
+{
+    height:120px;
+    width:120px;
+    border-radius: 12px;
+    background-color: #7D9C1F;
+}
+
+.nre-container{
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: space-around;
+    align-items: center;
+}
+.navigation{
+    background-color: #325908;
+    padding: 20px 0;
+    border-radius: 15px;
+    /*height: 300px;*/
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: space-evenly;
+}
+
+.btn.btn-primary
+{
+    /*box-shadow: 0 0 7px 2px #6aa818;*/
+    border: none;
+    /*margin-top: 165px;
+    margin-right:13px;*/
+    border-radius: 20px;
+    background-color: #325908;
+}
+
+.nre-switch-button{
+    width:125px;
+    height:118px;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #7D9C1F;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 7px #999;
+    padding: 10px 0 0 0;
+    -webkit-user-select: none;
+    margin: 0 0 17px;
+}
+
+.nre-switch-button:hover
+{
+    background-color: #688A08;
+    text-decoration: none;
+    color: inherit;
+}
+
+.nre-switch-button:active {
+    background-color: #688A08;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.nre-switch-button > img{
+    max-width: 110px;
+    max-height: 80px;
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
+
+.nre-switch-button.gas{
+    background-image: radial-gradient(circle, #688d02, #83b300,#A5DF00);
+}
+.nre-switch-button.gas:hover,
+.nre-switch-button.gas:active {
+    background: #86B404
+}
+
+.nre-switch-button.sun{
+    background-image: radial-gradient(circle, #cc6600 10%, #FF8000, #ffa64d);
+}
+.nre-switch-button.sun:hover,
+.nre-switch-button.sun:active {
+    background: #DF7401
+}
+
+.nre-switch-button.hydro{
+    background-image: radial-gradient(circle, #015cb2 10%, #0174DF, #1b90fe);
+    background-color: #0174DF;
+}
+.nre-switch-button.hydro:hover,
+.nre-switch-button.hydro:active {
+    background: #045FB4
+}
+
+.nre-switch-button.wind{
+    background-image: radial-gradient(circle, #737373 10%, #848484, #8c8c8c);
+    background-color: #848484;
+}
+.nre-switch-button.wind:hover,
+.nre-switch-button.wind:active {
+    background: #6E6E6E
+}
+
+#map
+{
+    border-radius: 15px;
+}
+
+

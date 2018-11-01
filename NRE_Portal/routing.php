@@ -10,6 +10,7 @@ define('__BASE_URL__', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].di
 define('__PUBLIC__', __BASE_URL__.'/public');
 define('__PUBLIC_CSS__', __PUBLIC__.'/css');
 define('__PUBLIC_JS__', __PUBLIC__.'/js');
+define('__PUBLIC_IMG__', __PUBLIC__.'/img');
 
 define('__DB_HOST__', 'localhost');
 define('__DB_USER__', 'root');
@@ -41,15 +42,15 @@ spl_autoload_register( function($className)
     }
 });
 
+$uri = (isset($_GET['__uri']) ? $_GET['__uri'] : '');
+$uri = ($uri == '' ? 'login' : $uri);
 
-$c_name = ucfirst( strtolower( $_GET['__c'] ) ) . 'Controller';
-$action = $_GET['__a'];
-$uri = $_GET['__uri'];
-$spath = preg_split('/\\//', $uri );
+$uri_parts = explode('/', $uri);
+
+$c_name = ucfirst( strtolower( $uri_parts[0] ) ) . 'Controller';
+$action = ( isset($uri_parts[1]) ? $uri_parts[1] : '' );
 
 // Cleaning $_GET variables (query string)
-unset( $_GET['__c'] );
-unset( $_GET['__a'] );
 unset( $_GET['__uri'] );
 
 
@@ -62,7 +63,7 @@ catch(Exception $e)
     $controller = new DefaultController();
 }
 
-$controller->run( $action, $spath, $uri );
+$controller->run( $action, $uri_parts, $uri );
 
 /*
 ?>

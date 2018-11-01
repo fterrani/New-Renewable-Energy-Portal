@@ -1,0 +1,3 @@
+# We apply the rule if the REQUEST_URI does not match an existing file
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*) routing.php?__uri=$1 [B,QSA,L]

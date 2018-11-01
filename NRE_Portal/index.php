@@ -1,5 +1,8 @@
 <?php
 
+require_once 'routing.php';
+
+/*
 const DB_USERNAME = 'root';
 const DB_PASSWORD = '';
 
@@ -32,9 +35,4 @@ if ( isset($_POST['username']))
         echo 'Connection error';
     }
 }
-
-// my SUPER comment (Fabien)
-//Comment jauf
-?>
-<!DOCTYPE html>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+*/

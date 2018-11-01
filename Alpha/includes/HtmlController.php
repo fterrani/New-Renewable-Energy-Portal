@@ -10,8 +10,6 @@ abstract class HtmlController extends Controller
 
     function __construct()
     {
-        parent::__construct();
-
         $this->status = 200;
         $this->mimeType = 'text/html';
     }
